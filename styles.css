@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
+
+:root {
+  --background: #bfd7ea;
+  --color1: #0b3954;
+  --color2: #087e8b;
+  --color3: #ff5a5f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  background-color: var(--background);
+}
+
+.container {
+  width: 780px;
+  /*   min-width: 600px; */
+  padding: 26px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.container .input-field {
+  z-index: -999;
+  opacity: 0;
+  position: absolute;
+}
+
+.container .content-container {
+  padding: 12px 20px 0px;
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+.content-container .typing-text {
+  max-height: 220px;
+  min-height: 220px;
+  overflow-y: auto;
+}
+
+.typing-text::-webkit-scrollbar {
+  width: 0;
+}
+
+.typing-text p {
+  font-size: 22px;
+  letter-spacing: 1px;
+  line-height: 26px;
+  text-align: center;
+  word-break: break-all;
+}
+
+.typing-text p span {
+  position: relative;
+}
+
+.typing-text p span.correct {
+  color: lightgreen;
+}
+
+.typing-text p span.incorrect {
+  color: red;
+  background: rgb(255, 225, 225);
+  outline: 1px solid #fff;
+}
+
+.typing-text p span.active {
+  color: var(--color2);
+}
+
+.typing-text p span.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #b3d3d6;
+  opacity: 0;
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 1;
+  }
+}
+
+.content-container .label-container {
+  /*   min-width: 400px; */
+  margin-top: 16px;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+}
+
+.content-container button {
+  width: 120px;
+  height: 40px;
+  margin-top: 1px;
+  margin-right: 28px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #fff;
+  background-color: var(--color1);
+  transition: transform(0.2s ease);
+}
+
+.content-container button:active {
+  transform: scale(0.98);
+}
+
+.label-container .progress-bar {
+  width: calc(100% - 200px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar li {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+}
+
+.progress-bar li:not(:first-child) {
+  padding-left: 24px;
+  border-left: 1px solid #ccc;
+}
+
+.progress-bar li p {
+  font-size: 1rem;
+}
+
+.progress-bar li span {
+  display: block;
+  font-size: 1.2rem;
+  margin-left: 0.8rem;
+}
+
+.progress-bar li:not(:first-child) span {
+  font-weight: bold;
+}
+
+/* .progress-bar li b {
+    font-weight: bold;
+} */
